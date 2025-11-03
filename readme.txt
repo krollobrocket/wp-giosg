@@ -1,7 +1,7 @@
 === WP Giosg ===
 Contributors: cyclonecode
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VUK8LYLAN2DA6
-Tags: giosg, chat, live chat, basket, customer support, woocommerce
+Tags: giosg, live chat, customer support, woocommerce
 Requires at least: 3.1.0
 Tested up to: 6.8.3
 Requires PHP: 7.4
