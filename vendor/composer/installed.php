@@ -3,7 +3,7 @@
         'name' => 'cyclonecode/wp-giosg',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'd8aafb7e37cf6f7f93f098dfe92d5c6fd885e2a1',
+        'reference' => '638a5c81bd53dfc84bbd1f9666c5fab78fd3f313',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'cyclonecode/wp-giosg' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'd8aafb7e37cf6f7f93f098dfe92d5c6fd885e2a1',
+            'reference' => '638a5c81bd53dfc84bbd1f9666c5fab78fd3f313',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
