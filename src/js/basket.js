@@ -12,7 +12,6 @@ const handleCart = () => {
   const decimals = cartData.totals.currency_minor_unit;
   if (totalPrice !== currentTotal) {
     totalPrice = currentTotal;
-    giosg.api.shoppingCart.setCurrency(cartData.totals.currency_code);
     if (cartData.coupons.length) {
       const subTotal = cartData.totals.total_price.toString();
       const subTotalLen = subTotal.length;
@@ -70,10 +69,9 @@ jQuery(document).ready(async ($) => {
         giosg.api.shoppingCart.freeze().then(() => {});
       }
     }, "wc/store/checkout");
-  }
-  if (hasGiosg() && wp.data) {
-    totalPrice = wp.data.select("wc/store/cart").getCartData()
-      ?.totals?.total_price;
+    const cartData = wp.data.select("wc/store/cart").getCartData();
+    totalPrice = cartData?.totals?.total_price;
+    giosg.api.shoppingCart.setCurrency(cartData?.totals?.currency_code);
     handleCart();
     wp.data.subscribe(() => {
       handleCart();

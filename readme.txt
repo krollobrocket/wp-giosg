@@ -56,6 +56,6 @@ Add basket script and decode cart.
 
 == Changelog ==
 
-= 2.1.0
+= 2.2.0
 
-- Update: add support for woocommerce blocks.
+- Update: set currency once in cart.
