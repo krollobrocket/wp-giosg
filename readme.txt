@@ -5,7 +5,7 @@ Tags: giosg, live chat, customer support, woocommerce
 Requires at least: 3.1.0
 Tested up to: 6.8.3
 Requires PHP: 7.4
-Stable tag: 2.0.0
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,7 +21,7 @@ The only thing that needs to be done is to add your giosg company ID under the s
 
 The giosg basket can be integrated by turning on `Enable basket` from the settings page.
 In giosg the currency for the basket needs to be configured to match the default currency for your
-wordpress cart. At this point only **woocommerce** is supported.
+WordPress cart. At this point only **woocommerce** is supported.
 
 = Resources =
 
@@ -56,9 +56,6 @@ Add basket script and decode cart.
 
 == Changelog ==
 
-= 2.0.0
+= 2.1.0
 
-- Remove: composer installers.
-- Update: use after_setup_theme to set up the plugin.
-- Update: minor PHP version to 7.4.
-- Update: use store adapter for basket.
+- Update: add support for woocommerce blocks.

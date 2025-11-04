@@ -10,7 +10,7 @@ class Plugin
     /**
      * Plugin specific constants.
      */
-    const VERSION = '2.0.0';
+    const VERSION = '2.1.0';
     const SETTINGS_NAME = 'wp_giosg_settings';
     const PLUGIN_SLUG = 'wp-giosg';
     const NONCE = 'wp-giosg';
@@ -192,7 +192,7 @@ class Plugin
             'wp-giosg',
             plugin_dir_url(__FILE__) . 'js/basket.js',
             ['jquery'],
-            self::VERSION . time(),
+            self::VERSION,
             true
         );
         wp_localize_script(
@@ -207,19 +207,6 @@ class Plugin
             ]
         );
         wp_enqueue_script('wp-giosg');
-    }
-
-    /**
-     * Add basket script if enabled.
-     */
-    public function addBasket(): void
-    {
-        if ($this->settings->get('active')) {
-            if ((is_user_logged_in() || $this->settings->get('anonymously')) && $this->settings->get('enable_basket')) {
-                extract(['giosg' => $this]);
-                require_once __DIR__ . '/templates/basket.php';
-            }
-        }
     }
 
     /**

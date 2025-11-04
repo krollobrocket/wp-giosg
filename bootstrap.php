@@ -3,7 +3,7 @@
  * Plugin Name: WP Giosg
  * Plugin URI: https://wordpress.org/plugins/wp-giosg/
  * Description: Integrates giosg with WordPress.
- * Version: 2.0.0
+ * Version: 2.1.0
  * Requires at least: 3.1.0
  * Requires PHP: 7.4
  * Author: Cyclonecode
