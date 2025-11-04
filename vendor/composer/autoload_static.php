@@ -22,8 +22,8 @@ class ComposerStaticInit5fdb2ca0c2ab7d307bd1fb50e50a4199
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'WPGiosg\\Adapter\\ShopifyStoreAdapter' => __DIR__ . '/../..' . '/src/Adapter/ShopifyStoreAdapter.php',
-        'WPGiosg\\Adapter\\WoocommerceStoreAdapter' => __DIR__ . '/../..' . '/src/Adapter/WoocommerceStoreAdapter.php',
+        'WPGiosg\\Adapters\\ShopifyStoreAdapter' => __DIR__ . '/../..' . '/src/Adapters/ShopifyStoreAdapter.php',
+        'WPGiosg\\Adapters\\WoocommerceStoreAdapter' => __DIR__ . '/../..' . '/src/Adapters/WoocommerceStoreAdapter.php',
         'WPGiosg\\Interfaces\\StoreInterface' => __DIR__ . '/../..' . '/src/Interfaces/StoreInterface.php',
         'WPGiosg\\Plugin' => __DIR__ . '/../..' . '/src/Plugin.php',
         'WPGiosg\\Plugin\\DI\\Container' => __DIR__ . '/../..' . '/src/Plugin/DI/Container.php',

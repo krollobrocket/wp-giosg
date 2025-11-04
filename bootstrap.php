@@ -22,7 +22,7 @@ namespace WPGiosg;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-use WPGiosg\Adapter\WoocommerceStoreAdapter;
+use WPGiosg\Adapters\WoocommerceStoreAdapter;
 use WPGiosg\Plugin\DI\Container;
 use WPGiosg\Plugin\Settings\Settings;
 

@@ -131,7 +131,7 @@ class Plugin
      * @param string $file
      * @return array
      */
-    public function addActionLinks(array $links, $file): array
+    public function addActionLinks(array $links, string $file): array
     {
         $settings_link = '<a href="' . admin_url('options-general.php?page=' . self::PLUGIN_SLUG) . '">' . __('Settings', 'wp-giosg') . '</a>';
         if ($file === 'wp-giosg/bootstrap.php') {
@@ -148,7 +148,7 @@ class Plugin
      * @param string $plugin_file Path to the plugin file relative to the plugins directory.
      * @return array An array of the plugin's metadata.
      */
-    public function filterPluginRowMeta(array $plugin_meta, $plugin_file): array
+    public function filterPluginRowMeta(array $plugin_meta, string $plugin_file): array
     {
         if ($plugin_file !== 'wp-giosg/bootstrap.php') {
             return $plugin_meta;
@@ -221,9 +221,9 @@ class Plugin
         $title = ' | ' . $sectionText;
         ?>
         <div id="wp-giosg-admin-header" style="padding-top: 20px">
-            <span><img style="float: left; margin-right: 20px;" width="64" src="<?php echo plugin_dir_url(__FILE__); ?>assets/icon-256x256.png" alt="<?php _e('WP Giosg', 'wp-giosg'); ?>" />
+            <div style="display: inline"><img style="float: left; margin-right: 20px;" width="64" src="<?php echo plugin_dir_url(__FILE__); ?>assets/icon-256x256.png" alt="<?php _e('WP Giosg', 'wp-giosg'); ?>" />
                 <h1 style="font-size: 23px; font-weight: 400; margin-top: 20px"><?php _e('WP Giosg', 'wp-giosg'); ?><?php echo $title; ?></h1>
-            </span>
+            </div>
         </div>
         <?php
     }

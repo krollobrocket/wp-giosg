@@ -1,6 +1,6 @@
 <?php
 
-namespace WPGiosg\Adapter;
+namespace WPGiosg\Adapters;
 
 use WPGiosg\Interfaces\StoreInterface;
 

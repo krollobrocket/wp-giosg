@@ -9,7 +9,7 @@
                     <label for="active"><?php _e('Enable chat', 'wp-giosg'); ?></label>
                     </th>
                 <td>
-                    <input type="checkbox" name="active"<?php checked($this->settings->get('active')); ?> />
+                    <input type="checkbox" id="active" name="active"<?php checked($this->settings->get('active')); ?> />
                     <p class="description"><?php _e('Activate live chat.', 'wp-giosg'); ?></p>
                     </td>
             </tr>
@@ -18,7 +18,7 @@
                     <label for="scriptVersion"><?php _e('Script version', 'wp-giosg'); ?></label>
                 </th>
                 <td>
-                    <select name="scriptVersion">
+                    <select id="scriptVersion" name="scriptVersion">
                         <option value="v1"<?php selected($this->settings->get('script_version') === 'v1'); ?>><?php _e('v1', 'wp-giosg'); ?></option>
                         <option value="v2"<?php selected($this->settings->get('script_version') === 'v2'); ?>><?php _e('v2', 'wp-giosg'); ?></option>
                     </select>
@@ -31,7 +31,7 @@
                     <label for="anonymously"><?php _e('Display chat for anonymous users', 'wp-giosg'); ?></label>
                     </th>
                 <td>
-                    <input type="checkbox" name="anonymously"<?php checked($this->settings->get('anonymously')); ?> />
+                    <input type="checkbox" id="anonymously" name="anonymously"<?php checked($this->settings->get('anonymously')); ?> />
                     <p class="description"><?php _e('Enable chat for both anonymous and logged in users.', 'wp-giosg'); ?></p>
                     </td>
                 </tr>
@@ -40,7 +40,7 @@
                     <label for="companyId"><?php _e('ID/UUID', 'wp-giosg'); ?></label>
                     </th>
                 <td>
-                    <input type="text" name="companyId" value="<?php echo $this->settings->get('id'); ?>" />
+                    <input type="text" id="companyId" name="companyId" value="<?php echo $this->settings->get('id'); ?>" />
                     <p class="description"><?php _e('Giosg company ID or UUID.', 'wp-giosg'); ?></p>
                     </td>
                 </tr>
@@ -49,7 +49,7 @@
                     <label for="enableBasket"><?php _e('Enable basket', 'wp-giosg'); ?></label>
                     </th>
                 <td>
-                    <input type="checkbox" name="enableBasket"<?php checked($this->settings->get('enable_basket')); ?><?php disabled(!is_plugin_active('woocommerce/woocommerce.php')); ?> />
+                    <input type="checkbox" id="enableBasket" name="enableBasket"<?php checked($this->settings->get('enable_basket')); ?><?php disabled(!is_plugin_active('woocommerce/woocommerce.php')); ?> />
                     <p class="description"><?php _e('Enable basket tracking.', 'wp-giosg'); ?></p>
                     <p class="description"><?php _e('You need to have WooCommerce enabled to use this feature.', 'wp-giosg'); ?></p>
                 </td>
@@ -60,7 +60,7 @@
                     <label for="ecommerceType"><?php _e('E-Commerce', 'wp-giosg'); ?></label>
                 </th>
                 <td>
-                    <select name="ecommerceType">
+                    <select id="ecommerceType" name="ecommerceType">
                         <?php foreach ($this->getStores() as $key => $store) : ?>
                         <option value="<?php echo $key; ?>"><?php echo $store; ?></option>
                         <?php endforeach; ?>

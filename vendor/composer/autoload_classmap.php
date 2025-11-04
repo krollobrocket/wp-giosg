@@ -7,8 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'WPGiosg\\Adapter\\ShopifyStoreAdapter' => $baseDir . '/src/Adapter/ShopifyStoreAdapter.php',
-    'WPGiosg\\Adapter\\WoocommerceStoreAdapter' => $baseDir . '/src/Adapter/WoocommerceStoreAdapter.php',
+    'WPGiosg\\Adapters\\ShopifyStoreAdapter' => $baseDir . '/src/Adapters/ShopifyStoreAdapter.php',
+    'WPGiosg\\Adapters\\WoocommerceStoreAdapter' => $baseDir . '/src/Adapters/WoocommerceStoreAdapter.php',
     'WPGiosg\\Interfaces\\StoreInterface' => $baseDir . '/src/Interfaces/StoreInterface.php',
     'WPGiosg\\Plugin' => $baseDir . '/src/Plugin.php',
     'WPGiosg\\Plugin\\DI\\Container' => $baseDir . '/src/Plugin/DI/Container.php',
