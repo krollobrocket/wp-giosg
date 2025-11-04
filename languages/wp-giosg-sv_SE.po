@@ -1,0 +1,135 @@
+# Translation of Plugins - WP Giosg - Stable (latest release) in Swedish
+# This file is distributed under the same license as the Plugins - WP Giosg - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-11-04 22:50+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Language: sv_SE\n"
+"Project-Id-Version: Plugins - WP Giosg - Stable (latest release)\n"
+"Language-Team: Svenska\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-04 22:45+0000\n"
+"Last-Translator: \n"
+"X-Loco-Version: 2.8.0; wp-6.8.3; php-8.0.30"
+
+#: ../../../../wp-giosg/trunk/src/templates/settings.php:13
+msgid "Activate live chat."
+msgstr "Aktivera chat i realtid."
+
+#. Author of the plugin
+msgid "Cyclonecode"
+msgstr "Cyclonecode"
+
+#: ../../../../wp-giosg/trunk/src/templates/settings.php:31
+msgid "Display chat for anonymous users"
+msgstr "Visa chat för anonyma användare"
+
+#: ../../../../wp-giosg/trunk/src/templates/settings.php:60
+msgid "E-Commerce"
+msgstr "E-handel"
+
+#: ../../../../wp-giosg/trunk/src/templates/settings.php:49
+msgid "Enable basket"
+msgstr "Aktivera korg"
+
+#: ../../../../wp-giosg/trunk/src/templates/settings.php:53
+msgid "Enable basket tracking."
+msgstr "Aktivera uppföljning av korg."
+
+#: ../../../../wp-giosg/trunk/src/templates/settings.php:9
+msgid "Enable chat"
+msgstr "Aktivera chat"
+
+#: ../../../../wp-giosg/trunk/src/templates/settings.php:35
+msgid "Enable chat for both anonymous and logged in users."
+msgstr "Aktiva chat både för anonyma och inloggade användare."
+
+#: ../../../../wp-giosg/trunk/src/templates/settings.php:44
+msgid "Giosg company ID or UUID."
+msgstr "Giosg företags ID/UUID."
+
+#. Author URI of the plugin
+msgid "https://stackoverflow.com/users/1047662/cyclonecode?tab=profile"
+msgstr "https://stackoverflow.com/users/1047662/cyclonecode?tab=profile"
+
+#. URI of the plugin
+msgid "https://wordpress.org/plugins/wp-giosg/"
+msgstr "https://wordpress.org/plugins/wp-giosg/"
+
+#: ../../../../wp-giosg/trunk/src/templates/settings.php:40
+msgid "ID/UUID"
+msgstr "ID/UUID"
+
+#. Description of the plugin
+#| msgid "Integrates giosg with wordpress."
+msgid "Integrates giosg with WordPress."
+msgstr "Integrerar giosg med WordPress."
+
+#: ../../../../wp-giosg/trunk/src/templates/settings.php:73
+msgid "Save settings"
+msgstr "Spara inställningar"
+
+#: ../../../../wp-giosg/trunk/src/templates/settings.php:18
+msgid "Script version"
+msgstr "Skript version"
+
+#: ../../../../wp-giosg/trunk/src/Plugin.php:296
+msgid "Select"
+msgstr "Välj"
+
+#: ../../../../wp-giosg/trunk/src/Plugin.php:136
+#: ../../../../wp-giosg/trunk/src/Plugin.php:220
+msgid "Settings"
+msgstr "Inställningar"
+
+#: ../../../../wp-giosg/trunk/src/templates/settings.php:25
+msgid "The version of the giosg script to use."
+msgstr "Den Giosg skript version som ska användas."
+
+#: ../../../../wp-giosg/trunk/src/templates/settings.php:68
+msgid "Type of e-commerce solution."
+msgstr "Typ av e-handelslösning."
+
+#: ../../../../wp-giosg/trunk/src/templates/settings.php:22
+msgid "v1"
+msgstr "v1"
+
+#: ../../../../wp-giosg/trunk/src/templates/settings.php:23
+msgid "v2"
+msgstr "v2"
+
+#: ../../../../wp-giosg/trunk/src/Plugin.php:165
+msgctxt "verb"
+msgid "Rate"
+msgstr "Betygsätt"
+
+#: ../../../../wp-giosg/trunk/src/Plugin.php:160
+msgctxt "verb"
+msgid "Sponsor"
+msgstr "Sponsra"
+
+#: ../../../../wp-giosg/trunk/src/Plugin.php:170
+msgctxt "verb"
+msgid "Support"
+msgstr "Hjälp"
+
+#. Name of the plugin
+#: ../../../../wp-giosg/trunk/src/Plugin.php:224
+#: ../../../../wp-giosg/trunk/src/Plugin.php:225
+#: ../../../../wp-giosg/trunk/src/Plugin.php:238
+#: ../../../../wp-giosg/trunk/src/Plugin.php:239
+msgid "WP Giosg"
+msgstr "WP Giosg"
+
+#: ../../../../wp-giosg/trunk/src/Plugin.php:253
+msgid "You are not allowed to perform this action."
+msgstr "Du saknar behörighet att utföra denna åtgärd."
+
+#: ../../../../wp-giosg/trunk/src/templates/settings.php:54
+#| msgid "You need to have woocommerce enabled to use this feature."
+msgid "You need to have WooCommerce enabled to use this feature."
+msgstr "Du måste ha WooCommerce aktiverat för att använda denna funktion."

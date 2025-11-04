@@ -51,7 +51,7 @@
                 <td>
                     <input type="checkbox" name="enableBasket"<?php checked($this->settings->get('enable_basket')); ?><?php disabled(!is_plugin_active('woocommerce/woocommerce.php')); ?> />
                     <p class="description"><?php _e('Enable basket tracking.', 'wp-giosg'); ?></p>
-                    <p class="description"><?php _e('You need to have woocommerce enabled to use this feature.', 'wp-giosg'); ?></p>
+                    <p class="description"><?php _e('You need to have WooCommerce enabled to use this feature.', 'wp-giosg'); ?></p>
                 </td>
             </tr>
             <!--

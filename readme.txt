@@ -21,7 +21,7 @@ The only thing that needs to be done is to add your giosg company ID under the s
 
 The giosg basket can be integrated by turning on `Enable basket` from the settings page.
 In giosg the currency for the basket needs to be configured to match the default currency for your
-WordPress cart. At this point only **woocommerce** is supported.
+WordPress cart. At this point only **WooCommerce** is supported.
 
 = Resources =
 
@@ -59,3 +59,4 @@ Add basket script and decode cart.
 = 2.2.0
 
 - Update: set currency once in cart.
+- Update: add translations.
