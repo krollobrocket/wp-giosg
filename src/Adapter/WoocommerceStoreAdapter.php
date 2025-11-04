@@ -25,6 +25,8 @@ class WoocommerceStoreAdapter implements StoreInterface
                 'name' => $item['data']->get_title(),
                 'quantity' => $item['quantity'],
                 'price' => $item['data']->get_price(),
+                'product_number' => $item['data']->get_sku() ?: $item['data']->get_id(),
+                'description' => $item['data']->get_description(),
             ];
         }
         foreach (WC()->cart->get_coupons() as $coupon) {
@@ -33,24 +35,24 @@ class WoocommerceStoreAdapter implements StoreInterface
                 'type' => $coupon->get_discount_type(),
                 'amount' => $coupon->get_amount(),
             ];
-            $items[] = [
+            /*$items[] = [
                 'name' => $coupon->get_code(),
                 'quantity' => 1,
                 'price' => 0,
-            ];
+            ];*/
         }
         return [
             'items' => $items,
             'coupons' => $coupons,
-            'cart_subtotal' => WC()->cart->get_cart_subtotal(),
-            'total' => WC()->cart->get_total(),
+            // 'cart_subtotal' => WC()->cart->get_cart_subtotal(),
+            // 'total' => WC()->cart->get_total(),
             'discount_subtotal' => WC()->cart->get_displayed_subtotal(),
             'discount_total' => WC()->cart->get_discount_total(),
-            'cart_total' => WC()->cart->get_cart_total(),
+            // 'cart_total' => WC()->cart->get_cart_total(),
             'cart_discount_total' => WC()->cart->get_cart_discount_total(),
-            'displayed_subtotal' => WC()->cart->get_displayed_subtotal(),
+            // 'displayed_subtotal' => WC()->cart->get_displayed_subtotal(),
             'subtotal' => WC()->cart->get_subtotal(),
-            'total_discount' => WC()->cart->get_total_discount(),
+            // 'total_discount' => WC()->cart->get_total_discount(),
         ];
     }
 }

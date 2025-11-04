@@ -103,7 +103,6 @@ class Plugin
                 add_action('wp_head', [$this, 'addScript']);
                 if ($this->settings->get('enable_basket')) {
                     $this->storeAdapter = get_giosg_container()['adapter'];
-                    add_action('wp_head', [$this, 'addBasket']);
                     add_action('wp_head', [$this, 'registerScripts']);
                     add_action('wp_ajax_giosg_update_cart', [$this, 'ajaxGetCart']);
                     add_action('wp_ajax_nopriv_giosg_update_cart', [$this, 'ajaxGetCart']);
@@ -193,7 +192,7 @@ class Plugin
             'wp-giosg',
             plugin_dir_url(__FILE__) . 'js/basket.js',
             ['jquery'],
-            self::VERSION,
+            self::VERSION . time(),
             true
         );
         wp_localize_script(
