@@ -1,6 +1,6 @@
 === WP Giosg ===
 Contributors: cyclonecode
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VUK8LYLAN2DA6
+Donate link: https://www.paypal.com/donate/?hosted_button_id=95677VA3ZNYZN
 Tags: giosg, live chat, customer support, woocommerce
 Requires at least: 3.1.0
 Tested up to: 6.8.3
@@ -16,6 +16,8 @@ This plugin integrates the live chat from giosg.com.
 This plugin adds a script tag that will enable the live chat from [www.giosg.com](http://www.giosg.com).
 
 The only thing that needs to be done is to add your giosg company ID under the settings page.
+
+A small donation would make it easier for me to continue improving and keeping the plugin free of charge: [donate](https://www.paypal.com/donate/?hosted_button_id=95677VA3ZNYZN).
 
 == Basket ==
 

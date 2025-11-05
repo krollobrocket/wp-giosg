@@ -156,7 +156,7 @@ class Plugin
 
         $plugin_meta[] = sprintf(
             '<a target="_blank" href="%1$s"><span class="wp-giosg dashicons dashicons-star-filled" aria-hidden="true"></span>%2$s</a>',
-            'https://www.buymeacoffee.com/cyclonecode',
+            'https://www.paypal.com/donate/?hosted_button_id=95677VA3ZNYZN',
             esc_html_x('Sponsor', 'verb', 'wp-giosg')
         );
         $plugin_meta[] = sprintf(
