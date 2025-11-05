@@ -19,8 +19,8 @@
                 </th>
                 <td>
                     <select id="scriptVersion" name="scriptVersion">
-                        <option value="v1"<?php selected($this->settings->get('script_version') === 'v1'); ?>><?php _e('v1', 'wp-giosg'); ?></option>
-                        <option value="v2"<?php selected($this->settings->get('script_version') === 'v2'); ?>><?php _e('v2', 'wp-giosg'); ?></option>
+                        <option value="v1"<?php selected($this->settings->get('scriptVersion') === 'v1'); ?>><?php _e('v1', 'wp-giosg'); ?></option>
+                        <option value="v2"<?php selected($this->settings->get('scriptVersion') === 'v2'); ?>><?php _e('v2', 'wp-giosg'); ?></option>
                     </select>
                     <p class="description"><?php _e('The version of the giosg script to use.', 'wp-giosg'); ?></p>
                 </td>
@@ -37,19 +37,55 @@
                 </tr>
             <tr>
                 <th scope="row">
-                    <label for="companyId"><?php _e('ID/UUID', 'wp-giosg'); ?></label>
+                    <label for="companyID"><?php _e('Company ID', 'wp-giosg'); ?></label>
                     </th>
                 <td>
-                    <input type="text" id="companyId" name="companyId" value="<?php echo $this->settings->get('id'); ?>" />
-                    <p class="description"><?php _e('Giosg company ID or UUID.', 'wp-giosg'); ?></p>
+                    <input type="text" id="companyID" name="companyID" class="regular-text" value="<?php echo $this->settings->get('companyID'); ?>" />
+                    <p class="description"><?php _e('Giosg company ID.', 'wp-giosg'); ?></p>
                     </td>
-                </tr>
+            </tr>
+          <tr>
+            <th scope="row">
+              <label for="companyUUID"><?php _e('Company UUID', 'wp-giosg'); ?></label>
+            </th>
+            <td>
+              <input type="text" id="companyUUID" name="companyUUID" class="regular-text" value="<?php echo $this->settings->get('companyUUID'); ?>" />
+              <p class="description"><?php _e('Giosg company UUID.', 'wp-giosg'); ?></p>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <label for="roomId"><?php _e('Room ID', 'wp-giosg'); ?></label>
+            </th>
+            <td>
+              <input type="text" id="roomId" name="roomId" class="regular-text" value="<?php echo $this->settings->get('roomId'); ?>" />
+              <p class="description"><?php _e('Giosg room ID.', 'wp-giosg'); ?></p>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <label for="accessToken"><?php _e('Access Token', 'wp-giosg'); ?></label>
+            </th>
+            <td>
+              <input type="text" id="accessToken" name="accessToken" class="regular-text" value="<?php echo $this->settings->get('accessToken'); ?>" />
+              <p class="description"><?php _e('Giosg Access Token.', 'wp-giosg'); ?></p>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <label for="apiSigningKey"><?php _e('Api Signing Key', 'wp-giosg'); ?></label>
+            </th>
+            <td>
+              <input type="text" id="apiSigningKey" name="apiSigningKey" class="regular-text" value="<?php echo $this->settings->get('apiSigningKey'); ?>" />
+              <p class="description"><?php _e('Giosg API Signing Key.', 'wp-giosg'); ?></p>
+            </td>
+          </tr>
             <tr>
                 <th scope="row">
                     <label for="enableBasket"><?php _e('Enable basket', 'wp-giosg'); ?></label>
                     </th>
                 <td>
-                    <input type="checkbox" id="enableBasket" name="enableBasket"<?php checked($this->settings->get('enable_basket')); ?><?php disabled(!is_plugin_active('woocommerce/woocommerce.php')); ?> />
+                    <input type="checkbox" id="enableBasket" name="enableBasket"<?php checked($this->settings->get('enableBasket')); ?><?php disabled(!is_plugin_active('woocommerce/woocommerce.php')); ?> />
                     <p class="description"><?php _e('Enable basket tracking.', 'wp-giosg'); ?></p>
                     <p class="description"><?php _e('You need to have WooCommerce enabled to use this feature.', 'wp-giosg'); ?></p>
                 </td>

@@ -38,6 +38,14 @@ class Plugin
     public function __construct(Settings $settings)
     {
         $this->settings = $settings;
+        // @todo - we need to update version in settings at this point.
+        if (version_compare(self::VERSION, '2.1.0', '<')) {
+          $this->settings
+            ->rename('id', 'companyID')
+            ->rename('script_version', 'scriptVersion')
+            ->rename('enable_basket', 'enableBasket')
+            ->save();
+        }
         $this->init();
     }
 
@@ -59,7 +67,7 @@ class Plugin
         $settings = get_giosg_container()['settings'];
 
         if (version_compare($settings->get('version'), self::VERSION, '<')) {
-            $settings->add('script_version', self::DEFAULT_SCRIPT_VERSION);
+            $settings->add('scriptVersion', self::DEFAULT_SCRIPT_VERSION);
             $settings->set('version', self::VERSION);
 
             // Store updated settings.
@@ -101,9 +109,15 @@ class Plugin
         if ($this->settings->get('active')) {
             if (is_user_logged_in() || $this->settings->get('anonymously')) {
                 add_action('wp_head', [$this, 'addScript']);
-                if ($this->settings->get('enable_basket')) {
+                add_action('login_head', [$this, 'addScript']);
+                if ($this->settings->get('enableBasket')) {
                     $this->storeAdapter = get_giosg_container()['adapter'];
                     add_action('wp_head', [$this, 'registerScripts']);
+                    add_action('login_enqueue_scripts', [$this, 'registerScripts']);
+                  /*
+                    add_action('login_enqueue_scripts', function () {
+                      wp_enqueue_script('wp-giosg', plugin_dir_url(__FILE__) . 'js/user.js', ['jquery']);
+                    });*/
                     add_action('wp_ajax_giosg_update_cart', [$this, 'ajaxGetCart']);
                     add_action('wp_ajax_nopriv_giosg_update_cart', [$this, 'ajaxGetCart']);
                 }
@@ -117,10 +131,10 @@ class Plugin
     public function onAdminInit(): void
     {
         // Make sure woocommerce is activated
-        if ($this->settings->get('enable_basket')) {
+        if ($this->settings->get('enableBasket')) {
             // Only available after admin_init has been fired.
             if (!is_plugin_active('woocommerce/woocommerce.php')) {
-                $this->settings->set('enable_basket', false);
+                $this->settings->set('enableBasket', false);
                 $this->settings->save();
             }
         }
@@ -145,7 +159,7 @@ class Plugin
      * Filters the array of row meta for each plugin in the Plugins list table.
      *
      * @param array $plugin_meta An array of the plugin's metadata.
-     * @param string $plugin_file Path to the plugin file relative to the plugins directory.
+     * @param string $plugin_file Path to the plugin file relative to the plugins' directory.
      * @return array An array of the plugin's metadata.
      */
     public function filterPluginRowMeta(array $plugin_meta, string $plugin_file): array
@@ -195,6 +209,14 @@ class Plugin
             self::VERSION,
             true
         );
+        wp_register_script(
+          'wp-giosg-user',
+          plugin_dir_url(__FILE__) . 'js/user.js',
+          ['jquery'],
+          self::VERSION,
+          true
+        );
+        $currentUser = wp_get_current_user();
         wp_localize_script(
             'wp-giosg',
             'wp_giosg',
@@ -204,9 +226,17 @@ class Plugin
                     'action' => 'giosg_update_cart',
                     '_ajax_nonce' => wp_create_nonce(self::NONCE),
                 ],
+                'is_logged_in' => is_user_logged_in(),
+                'user' => [
+                  'ID' => $currentUser->ID,
+                  'username' => $currentUser->user_nicename,
+                  'email' => $currentUser->user_email,
+                  'avatar' => get_avatar_url($currentUser->ID),
+                ]
             ]
         );
         wp_enqueue_script('wp-giosg');
+        wp_enqueue_script('wp-giosg-user');
     }
 
     /**
@@ -221,7 +251,7 @@ class Plugin
         $title = ' | ' . $sectionText;
         ?>
         <div id="wp-giosg-admin-header" style="padding-top: 20px">
-            <div style="display: inline"><img style="float: left; margin-right: 20px;" width="64" src="<?php echo plugin_dir_url(__FILE__); ?>assets/icon-256x256.png" alt="<?php _e('WP Giosg', 'wp-giosg'); ?>" />
+            <div style="display: inline"><img style="float: left; margin-right: 20px;" width="64" src="<?php echo plugin_dir_url(__FILE__); ?>assets/giosg-icon-256x256.png" alt="<?php _e('WP Giosg', 'wp-giosg'); ?>" />
                 <h1 style="font-size: 23px; font-weight: 400; margin-top: 20px"><?php _e('WP Giosg', 'wp-giosg'); ?><?php echo $title; ?></h1>
             </div>
         </div>
@@ -255,7 +285,7 @@ class Plugin
         // Verify nonce and referer.
         check_admin_referer('wp-giosg-settings-action', 'wp-giosg-settings-nonce');
         // Filter and sanitize form values.
-        $this->settings->set('script_version', filter_input(
+        $this->settings->set('scriptVersion', filter_input(
             INPUT_POST,
             'scriptVersion',
             FILTER_SANITIZE_STRING
@@ -272,15 +302,36 @@ class Plugin
         ));
         $id = filter_input(
             INPUT_POST,
-            'companyId',
+            'companyID',
             FILTER_SANITIZE_STRING
         );
-        $this->settings->set('id', trim($id));
-        $this->settings->set('enable_basket', filter_input(
+        $this->settings->set('companyID', trim($id));
+        $id = filter_input(
+          INPUT_POST,
+          'companyUUID',
+          FILTER_SANITIZE_STRING
+        );
+        $this->settings->set('companyUUID', trim($id));
+        $this->settings->set('enableBasket', filter_input(
             INPUT_POST,
             'enableBasket',
             FILTER_VALIDATE_BOOLEAN
         ));
+        $this->settings->set('accessToken', filter_input(
+          INPUT_POST,
+          'accessToken',
+          FILTER_SANITIZE_STRING
+        ));
+      $this->settings->set('apiSigningKey', filter_input(
+        INPUT_POST,
+        'apiSigningKey',
+        FILTER_SANITIZE_STRING
+      ));
+      $this->settings->set('roomId', filter_input(
+        INPUT_POST,
+        'roomId',
+        FILTER_SANITIZE_STRING
+      ));
         $this->settings->save();
         wp_safe_redirect(admin_url('options-general.php?page=' . self::PLUGIN_SLUG));
     }
@@ -324,8 +375,8 @@ class Plugin
         if ($this->settings->get('active')) {
             if (is_user_logged_in() || $this->settings->get('anonymously')) {
                 extract([
-                    'id' => $this->settings->get('id'),
-                    'version' => $this->settings->get('script_version') === self::DEFAULT_SCRIPT_VERSION ? '' : 2,
+                    'id' => $this->settings->get('companyID'),
+                    'version' => $this->settings->get('scriptVersion') === self::DEFAULT_SCRIPT_VERSION ? '' : 2,
                 ]);
                 require_once __DIR__ . '/templates/script.php';
             }

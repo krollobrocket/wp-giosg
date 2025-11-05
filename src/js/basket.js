@@ -37,7 +37,7 @@ const handleCart = () => {
 };
 jQuery(document).ready(async ($) => {
   // Handle non block events.
-  if (!wp.data && hasGiosg()) {
+  if (!document.wp?.data && hasGiosg()) {
     const updateCart = () => {
       $.ajax({
         method: "POST",
@@ -63,7 +63,7 @@ jQuery(document).ready(async ($) => {
       updateCart();
     });
   }
-  if (hasGiosg() && wp.data) {
+  if (hasGiosg() && document.wp?.data) {
     wp.data.subscribe(() => {
       if (wp.data.select("wc/store/checkout").isComplete()) {
         giosg.api.shoppingCart.freeze().then(() => {});
@@ -71,7 +71,7 @@ jQuery(document).ready(async ($) => {
     }, "wc/store/checkout");
     const cartData = wp.data.select("wc/store/cart").getCartData();
     totalPrice = cartData?.totals?.total_price;
-    giosg.api.shoppingCart.setCurrency(cartData?.totals?.currency_code);
+    _giosg.api?.shoppingCart.setCurrency(cartData?.totals?.currency_code);
     handleCart();
     wp.data.subscribe(() => {
       handleCart();
